@@ -262,7 +262,12 @@ extension IdentityUI {
         case let .byRoute(route, vc):
             self.handleRouteForUnpresentedUI(route: route, byPresentingIn: vc, completion: completion)
         case let .byLoginMethod(loginMethod, vc, localizedTeaserText, scopes):
-            let viewController = self.makeIdentifierViewController(loginMethod: loginMethod, localizedTeaserText: localizedTeaserText, scopes: scopes, completion: completion)
+            let viewController = self.makeIdentifierViewController(
+                loginMethod: loginMethod,
+                localizedTeaserText: localizedTeaserText,
+                scopes: scopes,
+                completion: completion
+            )
             self.navigationController.viewControllers = [viewController]
             vc.present(self.navigationController, animated: true)
         }
