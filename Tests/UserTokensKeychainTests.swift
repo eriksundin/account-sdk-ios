@@ -22,7 +22,7 @@ func storeWithPreviousKeychainLayout(tokens: TokenData) throws {
     var attributes = [String: Any]()
 
     attributes[String(kSecClass)] = kSecClassGenericPassword
-    attributes[String(kSecAttrAccessible)] = String(kSecAttrAccessibleWhenUnlocked)
+    attributes[String(kSecAttrAccessible)] = String(kSecAttrAccessibleAfterFirstUnlock)
     attributes[String(kSecAttrService)] = "swift.keychain.service"
     attributes[String(kSecAttrAccount)] = "SchibstedAccount"
     attributes[String(kSecValueData)] = archivedData
@@ -43,7 +43,7 @@ func loadWithPreviousKeychainLayout() throws -> TokenData {
     var attributes = [String: Any]()
 
     attributes[String(kSecClass)] = kSecClassGenericPassword
-    attributes[String(kSecAttrAccessible)] = String(kSecAttrAccessibleWhenUnlocked)
+    attributes[String(kSecAttrAccessible)] = String(kSecAttrAccessibleAfterFirstUnlock)
     attributes[String(kSecAttrService)] = "swift.keychain.service"
     attributes[String(kSecAttrAccount)] = "SchibstedAccount"
     attributes[String(kSecReturnData)] = kCFBooleanTrue
